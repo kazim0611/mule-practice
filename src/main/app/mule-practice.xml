@@ -16,6 +16,7 @@ http://www.mulesoft.org/schema/mule/jms http://www.mulesoft.org/schema/mule/jms/
         <db:select config-ref="MySQL_Configuration" doc:name="Database">
             <db:parameterized-query><![CDATA[select * from quotes]]></db:parameterized-query>
         </db:select>
+        <logger message="#[payload]" level="INFO" doc:name="Logger"/>
         <json:object-to-json-transformer returnClass="java.lang.String" doc:name="Object to JSON"/>
     </flow>
 </mule>
